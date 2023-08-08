@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/voting-system
+    username: postgres
+    password: postgres
+  sql:
+    init:
+      mode: always
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: 'true'
+    hibernate:
+      ddl-auto: none
+#    show-sql: 'true'
+#    open-in-view: false
+  mvc:
+    format:
+      date-time: yyyy-MM-dd
+      date: yyyy-MM-dd
+      time: HH:mm:ss
+server:
+  port: 9000

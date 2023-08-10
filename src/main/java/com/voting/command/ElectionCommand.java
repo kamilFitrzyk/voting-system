@@ -7,5 +7,6 @@ import lombok.Setter;
 @Getter
 public class ElectionCommand {
     private String name;
-    private char status;
+    private String code;
+    private String status;
 }

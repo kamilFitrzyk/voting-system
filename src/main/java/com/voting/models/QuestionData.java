@@ -11,7 +11,7 @@ import lombok.Setter;
 public class QuestionData {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "id", nullable = false)
+    @Column(name = "QUE_ID", nullable = false)
     private Long id;
 
     @Column(name = "QUE_QUESTION")

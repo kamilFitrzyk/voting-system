@@ -1,10 +1,9 @@
 package com.voting.service;
 
-import com.voting.command.ElectionCommand;
 import com.voting.models.ElectionData;
 import com.voting.repository.ElectionRepository;
 import com.voting.service.interfaces.ElectionService;
-import com.voting.convert.interfaces.ElectionConvert;
+import com.voting.view.ElectionView;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,13 +13,11 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class ElectionServiceImpl implements ElectionService {
-
-    private final ElectionConvert electionConvert;
     private final ElectionRepository electionRepository;
 
     @Override
-    public List<ElectionData> getElections() {
-        return electionRepository.findAll();
+    public List<ElectionView> getElectionsView(String status) {
+        return electionRepository.findAllByStatus(status);
     }
 
     @Override
@@ -29,8 +26,13 @@ public class ElectionServiceImpl implements ElectionService {
     }
 
     @Override
-    public ElectionData saveElection(ElectionCommand electionCommand) {
-        return electionRepository.save(electionConvert.convertToElectionData(electionCommand));
+    public Optional<ElectionView> getElectionByCode(String code) {
+        return electionRepository.findByCode(code);
+    }
+
+    @Override
+    public ElectionData saveElection(ElectionData electionCommand) {
+        return electionRepository.save(electionCommand);
     }
 
     @Override

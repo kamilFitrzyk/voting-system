@@ -1,18 +1,20 @@
 package com.voting.service.interfaces;
 
-import com.voting.command.ElectionCommand;
 import com.voting.models.ElectionData;
+import com.voting.view.ElectionView;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface ElectionService {
 
-    List<ElectionData> getElections();
+    List<ElectionView> getElectionsView(String status);
 
     Optional<ElectionData> getElectionById(Long id);
 
-    ElectionData saveElection(ElectionCommand election);
+    Optional<ElectionView> getElectionByCode(String code);
+
+    ElectionData saveElection(ElectionData election);
 
     void deleteById(Long idToDelete);
 }

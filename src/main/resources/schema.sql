@@ -7,7 +7,8 @@ CREATE TABLE IF NOT EXISTS VOTES (
 
 CREATE TABLE IF NOT EXISTS ELECTIONS (
      ELE_ID int not null,
-     ELE_NAME varchar(100) not null,
+     ELE_NAME varchar(100),
+     ELE_CODE varchar(100) not null,
      ELE_STATUS varchar(1),
      PRIMARY KEY (ELE_ID)
 );
